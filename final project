@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personality Quiz</title>
+</head>
+<body>
+  <h1>Personality Quiz</h1>
+  <form action="">
+    <p>What is your favorite color?</p>
+    <input type="radio" name="color" value="red">Red<br>
+    <input type="radio" name="color" value="blue">Blue<br>
+    <input type="radio" name="color" value="green">Green<br>
+
+    <p>What is your favorite hobby?</p>
+    <input type="radio" name="hobby" value="reading">Reading<br>
+    <input type="radio" name="hobby" value="sports">Sports<br>
+    <input type="radio" name="hobby" value="art">Art<br>
+
+    <p>What is your favorite type of music?</p>
+    <input type="radio" name="music" value="rock">Rock<br>
+    <input type="radio" name="music" value="pop">Pop<br>
+    <input type="radio" name="music" value="classical">Classical<br>
+
+    <input type="submit" value="Submit">
+  </form> 
+
+  <script>
+    // get the form element
+    const form = document.querySelector('form');
+
+    // add an event listener to the form
+    form.addEventListener('submit', (event) => {
+      // prevent the form from submitting
+      event.preventDefault();
+
+      // get the selected values
+      const color = document.querySelector('input[name="color"]:checked').value;
+      const hobby = document.querySelector('input[name="hobby"]:checked').value;
+      const music = document.querySelector('input[name="music"]:checked').value;
+
+      // determine the result based on the selected values
+      let result;
+      if (color === 'red' && hobby === 'reading' && music === 'classical') {
+        result = 'You are a thoughtful and sophisticated person.';
+      } else if (color === 'blue' && hobby === 'sports' && music === 'rock') {
+        result = 'You are an energetic and adventurous person.';
+      } else if (color === 'green' && hobby === 'art' && music === 'pop') {
+        result = 'You are a creative and fun-loving person.';
+      } else {
+        result = 'Your personality is unique and hard to categorize.';
+      }
+
+      // display the result
+      alert(result);
+    });
+  </script>
+</body>
+</html>
